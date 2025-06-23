@@ -24,6 +24,7 @@ import { playSfxById, SfxId } from './sfx';
 import { MainMenu } from './ui/main-menu';
 import { LoginForm } from './ui/login';
 import { CharacterSelect } from './ui/character-select';
+import { Vitals } from './ui/vitals';
 import { SmallAlertLargeHeader } from './ui/small-alert-large-header';
 import { ExitGame } from './ui/exit-game';
 import { SmallConfirm } from './ui/small-confirm';
@@ -126,6 +127,9 @@ const render = (now: DOMHighResTimeStamp) => {
   ctx.fillStyle = '#000';
   ctx.fillRect(0, 0, GAME_WIDTH, GAME_HEIGHT);
   client.render(ctx);
+  if (client.state === GameState.InGame) {
+    vitals.render(now, ctx);
+  }
   requestAnimationFrame(render);
 };
 
@@ -251,6 +255,7 @@ const initializeSocket = (next: 'login' | 'create') => {
 const mainMenu = new MainMenu();
 const loginForm = new LoginForm();
 const createAccountForm = new CreateAccountForm();
+const vitals = new Vitals();
 const characterSelect = new CharacterSelect();
 const createCharacterForm = new CreateCharacterForm();
 const changePasswordForm = new ChangePasswordForm();
