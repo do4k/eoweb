@@ -11,6 +11,7 @@ import {
 } from 'eolib';
 import { type Client, ChatTab } from '../client';
 import { NpcWalkAnimation } from '../render/npc-walk';
+import { NpcAttackAnimation } from '../render/npc-attack';
 import { ChatBubble } from '../chat-bubble';
 
 function handleNpcPlayer(client: Client, reader: EoReader) {
@@ -31,6 +32,20 @@ function handleNpcPlayer(client: Client, reader: EoReader) {
       );
       npc.coords = position.coords;
     }
+  }
+  
+  for (const attack of packet.attacks) {
+    const npc = client.nearby.npcs.find((n) => attack.npcIndex === n.index);
+    if (!npc) {
+      unknownNpcsIndexes.add(attack.npcIndex);
+      continue;
+    }
+
+    npc.direction = attack.direction;
+    client.npcAnimations.set(
+      npc.index,
+      new NpcAttackAnimation(npc.coords, attack.direction),
+    )
   }
 
   for (const chat of packet.chats) {
