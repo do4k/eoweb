@@ -6,103 +6,103 @@ import { GfxType, getBitmapById } from '../gfx';
 import type { Vector2 } from '../vector';
 
 const MALE_STANDING_OFFSETS = {
-  [Direction.Up]: { x: 0, y: 5 },
-  [Direction.Down]: { x: 0, y: 5 },
-  [Direction.Left]: { x: 0, y: 5 },
-  [Direction.Right]: { x: 0, y: 5 },
+  [Direction.Up]: { x: 0, y: 0 },
+  [Direction.Down]: { x: 0, y: 0 },
+  [Direction.Left]: { x: 0, y: 0 },
+  [Direction.Right]: { x: 0, y: 0 },
 };
 
 const FEMALE_STANDING_OFFSETS = {
-  [Direction.Up]: { x: 0, y: 6 },
-  [Direction.Down]: { x: 0, y: 6 },
-  [Direction.Left]: { x: 0, y: 6 },
-  [Direction.Right]: { x: 0, y: 6 },
+  [Direction.Up]: { x: 0, y: 0 },
+  [Direction.Down]: { x: 0, y: 0 },
+  [Direction.Left]: { x: 0, y: 0 },
+  [Direction.Right]: { x: 0, y: 0 },
 };
 
 const FEMALE_WALKING_OFFSETS = {
-  [Direction.Up]: { x: 0, y: 3 },
-  [Direction.Down]: { x: 0, y: 3 },
-  [Direction.Left]: { x: 0, y: 3 },
-  [Direction.Right]: { x: 0, y: 3 },
+  [Direction.Up]: { x: 0, y: 0 },
+  [Direction.Down]: { x: 0, y: 0 },
+  [Direction.Left]: { x: 0, y: 0 },
+  [Direction.Right]: { x: 0, y: 0 },
 };
 
 const MALE_WALKING_OFFSETS = {
-  [Direction.Up]: { x: 0, y: 2 },
-  [Direction.Down]: { x: 1, y: 2 },
-  [Direction.Left]: { x: 0, y: 2 },
-  [Direction.Right]: { x: -1, y: 2 },
+  [Direction.Up]: { x: 0, y: 0 },
+  [Direction.Down]: { x: 0, y: 0 },
+  [Direction.Left]: { x: 0, y: 0 },
+  [Direction.Right]: { x: 0, y: 0 },
 };
 
 const FEMALE_ATTACK_OFFSETS = [
   {
-    [Direction.Up]: { x: -1, y: 6 },
-    [Direction.Down]: { x: 1, y: 6 },
-    [Direction.Left]: { x: 1, y: 6 },
-    [Direction.Right]: { x: -1, y: 6 },
+    [Direction.Up]: { x: 0, y: 0 },
+    [Direction.Down]: { x: 0, y: 0 },
+    [Direction.Left]: { x: 0, y: 0 },
+    [Direction.Right]: { x: 0, y: 0 },
   },
   {
-    [Direction.Up]: { x: 1, y: 6 },
-    [Direction.Down]: { x: -1, y: 6 },
-    [Direction.Left]: { x: -1, y: 6 },
-    [Direction.Right]: { x: 1, y: 6 },
+    [Direction.Up]: { x: 0, y: 0 },
+    [Direction.Down]: { x: 0, y: 0 },
+    [Direction.Left]: { x: 0, y: 0 },
+    [Direction.Right]: { x: 0, y: 0 },
   },
 ];
 
 const MALE_ATTACK_OFFSETS = [
   {
-    [Direction.Up]: { x: -2, y: 5 },
-    [Direction.Down]: { x: 2, y: 5 },
-    [Direction.Left]: { x: 2, y: 5 },
-    [Direction.Right]: { x: -2, y: 5 },
+    [Direction.Up]: { x: 0, y: 0 },
+    [Direction.Down]: { x: 0, y: 0 },
+    [Direction.Left]: { x: 0, y: 0 },
+    [Direction.Right]: { x: 0, y: 0 },
   },
   {
-    [Direction.Up]: { x: 2, y: 5 },
-    [Direction.Down]: { x: -2, y: 5 },
-    [Direction.Left]: { x: -2, y: 5 },
-    [Direction.Right]: { x: 2, y: 5 },
+    [Direction.Up]: { x: 0, y: 0 },
+    [Direction.Down]: { x: 0, y: 0 },
+    [Direction.Left]: { x: 0, y: 0 },
+    [Direction.Right]: { x: 0, y: 0 },
   },
 ];
 
 const FEMALE_RANGE_ATTACK_OFFSETS = {
-  [Direction.Up]: { x: 1, y: 6 },
-  [Direction.Down]: { x: -1, y: 6 },
-  [Direction.Left]: { x: -2, y: 6 },
-  [Direction.Right]: { x: 1, y: 6 },
+  [Direction.Up]: { x: 0, y: 0 },
+  [Direction.Down]: { x: 0, y: 0 },
+  [Direction.Left]: { x: 0, y: 0 },
+  [Direction.Right]: { x: 0, y: 0 },
 };
 
 const MALE_RANGE_ATTACK_OFFSETS = {
-  [Direction.Up]: { x: 0, y: 4 },
-  [Direction.Down]: { x: 3, y: 5 },
-  [Direction.Left]: { x: 0, y: 4 },
-  [Direction.Right]: { x: -5, y: 4 },
+  [Direction.Up]: { x: 0, y: 0 },
+  [Direction.Down]: { x: 0, y: 0 },
+  [Direction.Left]: { x: 0, y: 0 },
+  [Direction.Right]: { x: 0, y: 0 },
 };
 
 const MALE_SIT_FLOOR_OFFSETS = {
-  [Direction.Up]: { x: -3, y: 14 },
-  [Direction.Down]: { x: 3, y: 14 },
-  [Direction.Left]: { x: 3, y: 14 },
-  [Direction.Right]: { x: -3, y: 14 },
+  [Direction.Up]: { x: 0, y: 0 },
+  [Direction.Down]: { x: 0, y: 0 },
+  [Direction.Left]: { x: 0, y: 0 },
+  [Direction.Right]: { x: 0, y: 0 },
 };
 
 const FEMALE_SIT_FLOOR_OFFSETS = {
-  [Direction.Up]: { x: -3, y: 13 },
-  [Direction.Down]: { x: 1, y: 13 },
-  [Direction.Left]: { x: 3, y: 13 },
-  [Direction.Right]: { x: -1, y: 13 },
+  [Direction.Up]: { x: 0, y: 0 },
+  [Direction.Down]: { x: 0, y: 0 },
+  [Direction.Left]: { x: 0, y: 0 },
+  [Direction.Right]: { x: 0, y: 0 },
 };
 
 const MALE_SIT_CHAIR_OFFSETS = {
-  [Direction.Up]: { x: -3, y: 5 },
-  [Direction.Down]: { x: 3, y: 5 },
-  [Direction.Left]: { x: 3, y: 5 },
-  [Direction.Right]: { x: -3, y: 5 },
+  [Direction.Up]: { x: 0, y: 0 },
+  [Direction.Down]: { x: 0, y: 0 },
+  [Direction.Left]: { x: 0, y: 0 },
+  [Direction.Right]: { x: 0, y: 0 },
 };
 
 const FEMALE_SIT_CHAIR_OFFSETS = {
-  [Direction.Up]: { x: -3, y: 4 },
-  [Direction.Down]: { x: 2, y: 4 },
-  [Direction.Left]: { x: 3, y: 4 },
-  [Direction.Right]: { x: -2, y: 4 },
+  [Direction.Up]: { x: 0, y: 0 },
+  [Direction.Down]: { x: 0, y: 0 },
+  [Direction.Left]: { x: 0, y: 0 },
+  [Direction.Right]: { x: 0, y: 0 },
 };
 
 export function renderCharacterBackItem(
@@ -115,36 +115,13 @@ export function renderCharacterBackItem(
     return;
   }
 
-  const directionalOffset = [Direction.Down, Direction.Right].includes(
+  const directionalOffset = [Direction.Down, Direction.Up].includes(
     character.direction,
   )
     ? 0
     : 1;
   const baseGfxId = (character.equipment.shield - 1) * 50;
-  const offset = directionalOffset;
-
-  // switch (true) {
-  //   case action === CharacterAction.Walking:
-  //     offset = animationFrame + 3 + 4 * directionalOffset;
-  //     break;
-  //   case action === CharacterAction.MeleeAttack:
-  //     offset = animationFrame + 13 + directionalOffset * 2;
-  //     break;
-  //   case action === CharacterAction.RangedAttack:
-  //     offset = (!animationFrame ? 1 : 21) + directionalOffset;
-  //     break;
-  //   case action === CharacterAction.CastingSpell:
-  //     offset = 11 + directionalOffset;
-  //     break;
-  //   case character.sitState === SitState.Floor:
-  //     offset = 19 + directionalOffset;
-  //     break;
-  //   case character.sitState === SitState.Chair:
-  //     offset = 17 + directionalOffset;
-  //     break;
-  //   default:
-  //     offset = 1 + directionalOffset;
-  // }
+  const offset = directionalOffset + 1;
 
   const bmp = getBitmapById(
     character.gender === Gender.Female ? GfxType.FemaleBack : GfxType.MaleBack,
@@ -162,7 +139,9 @@ export function renderCharacterBackItem(
 
   let screenX = Math.floor(rect.position.x + rect.width / 2 - bmp.width / 2);
 
-  let screenY = Math.floor(rect.position.y + rect.height / 2 - bmp.height) + 1;
+  let screenY = Math.floor(
+    rect.position.y + rect.height / 2 - 13 * (bmp.height / 16),
+  );
 
   const { direction, gender, sitState } = character;
 
@@ -214,16 +193,18 @@ export function renderCharacterBackItem(
   );
 
   if (mirrored) {
-    ctx.save(); // Save the current context state
-    ctx.translate(GAME_WIDTH, 0); // Move origin to the right edge
-    ctx.scale(-1, 1); // Flip horizontally
+    ctx.save();
+    ctx.translate(GAME_WIDTH, 0);
+    ctx.scale(-1, 1);
   }
 
   const drawX = Math.floor(
     mirrored ? GAME_WIDTH - screenX - bmp.width : screenX,
   );
 
-  ctx.drawImage(bmp, drawX, screenY);
+  const drawY = Math.floor(screenY);
+
+  ctx.drawImage(bmp, drawX, drawY);
 
   if (mirrored) {
     ctx.restore();

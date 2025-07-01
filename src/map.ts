@@ -907,6 +907,9 @@ export class MapRenderer {
     animationFrame: number,
     action: CharacterAction,
   ) {
+    if ([Direction.Down, Direction.Right].includes(character.direction)) {
+      renderCharacterBackItem(character, ctx, animationFrame, action);
+    }
     renderCharacterHairBehind(character, ctx, animationFrame, action);
   }
 
@@ -916,9 +919,6 @@ export class MapRenderer {
     animationFrame: number,
     action: CharacterAction,
   ) {
-    if ([Direction.Down, Direction.Right].includes(character.direction)) {
-      renderCharacterBackItem(character, ctx, animationFrame, action);
-    }
     renderCharacterBoots(character, ctx, animationFrame, action);
     renderCharacterArmor(character, ctx, animationFrame, action);
     renderCharacterHair(character, ctx, animationFrame, action);
