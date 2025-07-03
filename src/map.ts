@@ -28,7 +28,6 @@ import { GfxType, getBitmapById } from './gfx';
 import { renderCharacterArmor } from './render/character-armor';
 import { CharacterAttackAnimation } from './render/character-attack';
 import { CharacterRangedAttackAnimation } from './render/character-attack-ranged';
-import { renderCharacterBackItem } from './render/character-back-item';
 import { renderCharacterBoots } from './render/character-boots';
 import {
   calculateCharacterRenderPositionChair,
@@ -42,6 +41,7 @@ import {
 import { renderCharacterHair } from './render/character-hair';
 import { renderCharacterHairBehind } from './render/character-hair-behind';
 import { renderCharacterHealthBar } from './render/character-health-bar';
+import { renderCharacterShield } from './render/character-shield';
 import {
   calculateCharacterRenderPositionStanding,
   renderCharacterStanding,
@@ -908,7 +908,7 @@ export class MapRenderer {
     action: CharacterAction,
   ) {
     if ([Direction.Down, Direction.Right].includes(character.direction)) {
-      renderCharacterBackItem(character, ctx, animationFrame, action);
+      renderCharacterShield(character, ctx, animationFrame, action);
     }
     renderCharacterHairBehind(character, ctx, animationFrame, action);
   }
@@ -923,7 +923,7 @@ export class MapRenderer {
     renderCharacterArmor(character, ctx, animationFrame, action);
     renderCharacterHair(character, ctx, animationFrame, action);
     if ([Direction.Up, Direction.Left].includes(character.direction)) {
-      renderCharacterBackItem(character, ctx, animationFrame, action);
+      renderCharacterShield(character, ctx, animationFrame, action);
     }
   }
 

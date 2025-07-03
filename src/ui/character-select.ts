@@ -14,10 +14,10 @@ import {
   HALF_CHARACTER_WIDTH,
 } from '../consts';
 import { renderCharacterArmor } from '../render/character-armor';
-import { renderCharacterBackItem } from '../render/character-back-item';
 import { renderCharacterBoots } from '../render/character-boots';
 import { renderCharacterHair } from '../render/character-hair';
 import { renderCharacterHairBehind } from '../render/character-hair-behind';
+import { renderCharacterShield } from '../render/character-shield';
 import { renderCharacterStanding } from '../render/character-standing';
 import { playSfxById, SfxId } from '../sfx';
 import { capitalize } from '../utils/capitalize';
@@ -108,7 +108,7 @@ export class CharacterSelect extends Base {
       mapInfo.equipment.shield = character.equipment.shield;
 
       this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
-      renderCharacterBackItem(mapInfo, this.ctx, 0, CharacterAction.None);
+      renderCharacterShield(mapInfo, this.ctx, 0, CharacterAction.None, false);
       renderCharacterHairBehind(mapInfo, this.ctx, 0, CharacterAction.None);
       renderCharacterStanding(mapInfo, null, this.ctx);
       renderCharacterBoots(mapInfo, this.ctx, 0, CharacterAction.None);
