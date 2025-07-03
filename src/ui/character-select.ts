@@ -14,6 +14,7 @@ import {
   HALF_CHARACTER_WIDTH,
 } from '../consts';
 import { renderCharacterArmor } from '../render/character-armor';
+import { renderCharacterBackItem } from '../render/character-back-item';
 import { renderCharacterBoots } from '../render/character-boots';
 import { renderCharacterHair } from '../render/character-hair';
 import { renderCharacterHairBehind } from '../render/character-hair-behind';
@@ -106,6 +107,7 @@ export class CharacterSelect extends Base {
       mapInfo.equipment.weapon = character.equipment.weapon;
 
       this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+      renderCharacterBackItem(mapInfo, this.ctx, 0, CharacterAction.None);
       renderCharacterHairBehind(mapInfo, this.ctx, 0, CharacterAction.None);
       renderCharacterStanding(mapInfo, null, this.ctx);
       renderCharacterBoots(mapInfo, this.ctx, 0, CharacterAction.None);

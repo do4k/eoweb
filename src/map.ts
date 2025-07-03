@@ -2,6 +2,7 @@ import {
   AdminLevel,
   type CharacterMapInfo,
   Coords,
+  Direction,
   MapTileSpec,
   SitState,
 } from 'eolib';
@@ -27,6 +28,7 @@ import { GfxType, getBitmapById } from './gfx';
 import { renderCharacterArmor } from './render/character-armor';
 import { CharacterAttackAnimation } from './render/character-attack';
 import { CharacterRangedAttackAnimation } from './render/character-attack-ranged';
+import { renderCharacterBackItem } from './render/character-back-item';
 import { renderCharacterBoots } from './render/character-boots';
 import {
   calculateCharacterRenderPositionChair,
@@ -914,9 +916,15 @@ export class MapRenderer {
     animationFrame: number,
     action: CharacterAction,
   ) {
+    if ([Direction.Down, Direction.Right].includes(character.direction)) {
+      renderCharacterBackItem(character, ctx, animationFrame, action);
+    }
     renderCharacterBoots(character, ctx, animationFrame, action);
     renderCharacterArmor(character, ctx, animationFrame, action);
     renderCharacterHair(character, ctx, animationFrame, action);
+    if ([Direction.Up, Direction.Left].includes(character.direction)) {
+      renderCharacterBackItem(character, ctx, animationFrame, action);
+    }
   }
 
   renderCursor(
