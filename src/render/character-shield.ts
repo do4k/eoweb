@@ -168,15 +168,6 @@ export function renderCharacterShield(
     return;
   }
 
-  // Calculate offsets using the C# math
-  // const offsets = getShieldOffsets(
-  //   character,
-  //   bmp,
-  //   isShieldOnBack,
-  //   animationFrame,
-  //   action === CharacterAction.RangedAttack,
-  // );
-
   const screenX = rect.position.x;
   const screenY = rect.position.y;
 
